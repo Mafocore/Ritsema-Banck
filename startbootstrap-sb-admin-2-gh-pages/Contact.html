@@ -22,7 +22,7 @@
 
     <!--adding my own JS script file-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
@@ -31,46 +31,85 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-            <!--Side bar-->
-            <div id="navbar"> 
-            </div>
+        <!--Side bar-->
+        <div id="navbar">
+        </div>
 
-            <script>
-                $.get("Navbar.html", function(data){
+        <script>
+            $.get("Navbar.html", function (data) {
                 $("#navbar").replaceWith(data);
-                })
-            </script>
+            })
+        </script>
 
-            
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
-        <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-            <!--Top bar-->
-            <div id="Topbar"> 
-            </div>
+                <!--Top bar-->
+                <div id="Topbar">
+                </div>
 
-            <script>
-                $.get("Topbar.html", function(data){
-                $("#Topbar").replaceWith(data);
-                })
-            </script>
+                <script>
+                    $.get("Topbar.html", function (data) {
+                        $("#Topbar").replaceWith(data);
+                    })
+                </script>
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Contact Opnemen</h1>
+                    <!-- Contact Form -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Contact Formulier</h6>
+                        </div>
+                        <div class="card-body">
 
-                    <!-- Hier bezig met Email naar Contact-->
-                    <p>Stuur uw email naar Ritsema Banck</p>
-                    <textarea id="message" name="message" cols="40" rows="5"></textarea><br>
+                            <form class="user">
+                                <div class="form-group">
+                                    <label for="'houseType">Onderwerp</label>
+                                    <select class="form-control" id="houseType">
+                                        <option value="Mortgage">Hypotheek</option>
+                                        <option value="MonneyAffairs">Geldzaken</option>
+                                        <option value="Consultation">Adviesgesprek</option>
+                                        <option value="Other">Overige</option>
+                                    </select>
+                                </div>
+                                <label>Bericht</label>
+                                <textarea class="form-control mb-4" style="min-height: 300px;"></textarea>
+                                <a href="dashboard.html" class="btn btn-primary btn-user btn-block">
+                                    Verstuur
+                                </a>
+                            </form>
+                        </div>
+                    </div>
 
-                    <a href="#" class="btn btn-success btn-icon-split">
-                        <span class="text">Verstuur</span>
-                    </a>
+                    <div class="text-center mb-4">
+                        <h6 class="m-0 font-weight-bold text-primary">OF</h6>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="m-0 font-weight-bold text-primary">[Telefoon nummer]</h6>
+                                    <p class="mt-2 mb-0">Maandag t/m Vrijdag | 08:00 - 17:00 </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="m-0 font-weight-bold text-primary">[Email]</h6>
+                                    <p class="mt-2 mb-0">Reactie binnen 48 uur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 
