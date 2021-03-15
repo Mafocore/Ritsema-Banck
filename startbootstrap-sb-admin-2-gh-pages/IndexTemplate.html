@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Contact</title>
+    <title>Template</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -20,9 +20,8 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!--adding my own JS script file-->
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <!--adding Navbar JS script file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
@@ -31,46 +30,41 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-            <!--Side bar-->
-            <div id="navbar"> 
-            </div>
+        <!--Side bar-->
+        <div id="navdash">
+        </div>
 
-            <script>
-                $.get("Navbar.html", function(data){
-                $("#navbar").replaceWith(data);
-                })
-            </script>
+        <script>
+            $.get("navdash.html", function (data) {
+                $("#navdash").replaceWith(data);
+            })
+        </script>
 
-            
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
-        <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-            <!--Top bar-->
-            <div id="Topbar"> 
-            </div>
+                <!--Top bar-->
+                <div id="Topbar">
+                </div>
 
-            <script>
-                $.get("Topbar.html", function(data){
-                $("#Topbar").replaceWith(data);
-                })
-            </script>
+                <script>
+                    $.get("Topbar.html", function (data) {
+                        $("#Topbar").replaceWith(data);
+                    })
+                </script>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Contact Opnemen</h1>
+                    <!--HIER CODE INVOEGEN-->
+                    <h>Hier komt de code te staan</h>
+                    <!--HIER CODE INVOEGEN-->
+                    <!--HIER CODE INVOEGEN-->
 
-                    <!-- Hier bezig met Email naar Contact-->
-                    <p>Stuur uw email naar Ritsema Banck</p>
-                    <textarea id="message" name="message" cols="40" rows="5"></textarea><br>
-
-                    <a href="#" class="btn btn-success btn-icon-split">
-                        <span class="text">Verstuur</span>
-                    </a>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -127,6 +121,14 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 
