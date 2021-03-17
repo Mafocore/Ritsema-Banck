@@ -64,7 +64,7 @@
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6 class="m-0 font-weight-bold text-primary">[Telefoon nummer]</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-phone-square m-1"></i>[Telefoon nummer]</h6>
                                     <p class="mt-2 mb-0">Beschikbaarheid</p>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6 class="m-0 font-weight-bold text-primary">[Email]</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-envelope-square m-1"></i>[Email]</h6>
                                     <p class="mt-2 mb-0">Reactietijd</p>
                                 </div>
                             </div>
