@@ -40,14 +40,20 @@
                                         <div class="">
                                             <div class="p-5">
                                                 <div class="text-center">
-                                                    <h1>Ritsema Banck</h1>
-                                                    <p class="mb-4">Hypotheek Aanvragen</p>
+                                                    <h1 class="mb-4">Hypotheek Aanvragen</h1>
                                                 </div>
                                                 <form class="user">
                                                     <div class="form-group">
                                                         <label class="">Bruto jaarinkomen</label>
                                                         <input type="number" class="form-control" id="grossAnnualIncome"
                                                             placeholder="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <form action="upload.php" method="post"
+                                                            enctype="multipart/form-data">
+                                                            <p>Werkgeversverklaring:</p>
+                                                            <input type="file" name="fileToUpload" id="fileToUpload">
+                                                        </form>
                                                     </div>
                                                     <hr>
                                                     <!-- Partner -->
@@ -146,7 +152,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="">Heb je voorkeur voor een looptijd?</label>
+                                                        <label class="">Heb je voorkeur voor een looptijd? (In jaren)</label>
                                                         <input type="number" class="form-control" id="duration"
                                                             placeholder="">
                                                     </div>

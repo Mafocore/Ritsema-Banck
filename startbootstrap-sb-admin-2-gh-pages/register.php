@@ -40,6 +40,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <select class="form-control" id="gender">
+                                        <option value="" disabled selected>Maak uw keuze</option>
+                                        <option value="Men">Man</option>
+                                        <option value="Female">Vrouw</option>
+                                        <option value="NonBinair">Non binair</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <input type="date" class="form-control" id="dateOfBirth"
                                         placeholder="Geboortedatum">
                                 </div>
@@ -49,12 +57,12 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control"
-                                            id="exampleInputPassword" placeholder="Wachtwoord">
+                                        <input type="password" class="form-control" id="exampleInputPassword"
+                                            placeholder="Wachtwoord">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control"
-                                            id="exampleRepeatPassword" placeholder="Herhaal wachtwoord">
+                                        <input type="password" class="form-control" id="exampleRepeatPassword"
+                                            placeholder="Herhaal wachtwoord">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -63,21 +71,18 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-8 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control" id="streetname"
-                                            placeholder="Straat">
+                                        <input type="text" class="form-control" id="streetname" placeholder="Straat">
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control"
-                                            id="exampleRepeatPassword" placeholder="Huisnummer">
+                                        <input type="number" class="form-control" id="exampleRepeatPassword"
+                                            placeholder="Huisnummer">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="zipCode"
-                                        placeholder="Postcode">
+                                    <input type="text" class="form-control" id="zipCode" placeholder="Postcode">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="city"
-                                        placeholder="Woonplaats">
+                                    <input type="text" class="form-control" id="city" placeholder="Woonplaats">
                                 </div>
 
                                 <div class="form-group row">
