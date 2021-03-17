@@ -49,15 +49,24 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="card border p-2">
-                                        <h6 class="m-1">Startdatum<span class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
-                                        <h6 class="m-1">Einddatum<span class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
-                                        <h6 class="m-1">Hypotheeksom<span class="float-right font-weight-bold">€ x</span></h6>
-                                        <h6 class="m-1">Hypotheekvorm<span class="float-right font-weight-bold">Annuïteiten / Lineaire</span></h6>
-                                        <h6 class="m-1">Marktwaarde<span class="float-right font-weight-bold">€ x</span></h6>
-                                        <h6 class="m-1">Rentevaste Periode<span class="float-right font-weight-bold">x % (x jaar)</span></h6>
-                                        <h6 class="m-1">Termijnbedrag<span class="float-right font-weight-bold">€ x (per maand)</span></h6>
-                                        <h6 class="m-1">Looptijd<span class="float-right font-weight-bold">x Jaar (x maanden)</span></h6>
-                                        <h6 class="m-1">Totaalbedrag<span class="float-right font-weight-bold">€ x</span></h6>
+                                        <h6 class="m-1">Startdatum<span
+                                                class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
+                                        <h6 class="m-1">Einddatum<span
+                                                class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
+                                        <h6 class="m-1">Hypotheeksom<span class="float-right font-weight-bold">€
+                                                x</span></h6>
+                                        <h6 class="m-1">Hypotheekvorm<span
+                                                class="float-right font-weight-bold">Annuïteiten / Lineaire</span></h6>
+                                        <h6 class="m-1">Marktwaarde<span class="float-right font-weight-bold">€ x</span>
+                                        </h6>
+                                        <h6 class="m-1">Rentevaste Periode<span class="float-right font-weight-bold">x %
+                                                (x jaar)</span></h6>
+                                        <h6 class="m-1">Termijnbedrag<span class="float-right font-weight-bold">€ x (per
+                                                maand)</span></h6>
+                                        <h6 class="m-1">Looptijd<span class="float-right font-weight-bold">x Jaar (x
+                                                maanden)</span></h6>
+                                        <h6 class="m-1">Totaalbedrag<span class="float-right font-weight-bold">€
+                                                x</span></h6>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -67,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -94,19 +103,28 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="card border p-2">
-                                        <h6 class="m-1">Startdatum<span class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
-                                        <h6 class="m-1">Einddatum<span class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
-                                        <h6 class="m-1">Hypotheeksom<span class="float-right font-weight-bold">€ x</span></h6>
-                                        <h6 class="m-1">Hypotheekvorm<span class="float-right font-weight-bold">Annuïteiten / Lineaire</span></h6>
-                                        <h6 class="m-1">Marktwaarde<span class="float-right font-weight-bold">€ x</span></h6>
-                                        <h6 class="m-1">Rentevaste Periode<span class="float-right font-weight-bold">x % (x jaar)</span></h6>
-                                        <h6 class="m-1">Termijnbedrag<span class="float-right font-weight-bold">€ x (per maand)</span></h6>
-                                        <h6 class="m-1">Looptijd<span class="float-right font-weight-bold">x Jaar (x maanden)</span></h6>
-                                        <h6 class="m-1">Totaalbedrag<span class="float-right font-weight-bold">€ x</span></h6>
+                                        <h6 class="m-1">Startdatum<span
+                                                class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
+                                        <h6 class="m-1">Einddatum<span
+                                                class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
+                                        <h6 class="m-1">Hypotheeksom<span class="float-right font-weight-bold">€
+                                                x</span></h6>
+                                        <h6 class="m-1">Hypotheekvorm<span
+                                                class="float-right font-weight-bold">Annuïteiten / Lineaire</span></h6>
+                                        <h6 class="m-1">Marktwaarde<span class="float-right font-weight-bold">€ x</span>
+                                        </h6>
+                                        <h6 class="m-1">Rentevaste Periode<span class="float-right font-weight-bold">x %
+                                                (x jaar)</span></h6>
+                                        <h6 class="m-1">Termijnbedrag<span class="float-right font-weight-bold">€ x (per
+                                                maand)</span></h6>
+                                        <h6 class="m-1">Looptijd<span class="float-right font-weight-bold">x Jaar (x
+                                                maanden)</span></h6>
+                                        <h6 class="m-1">Totaalbedrag<span class="float-right font-weight-bold">€
+                                                x</span></h6>
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -127,15 +145,24 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="card border p-2">
-                                        <h6 class="m-1">Startdatum<span class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
-                                        <h6 class="m-1">Einddatum<span class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
-                                        <h6 class="m-1">Hypotheeksom<span class="float-right font-weight-bold">€ x</span></h6>
-                                        <h6 class="m-1">Hypotheekvorm<span class="float-right font-weight-bold">Annuïteiten / Lineaire</span></h6>
-                                        <h6 class="m-1">Marktwaarde<span class="float-right font-weight-bold">€ x</span></h6>
-                                        <h6 class="m-1">Rentevaste Periode<span class="float-right font-weight-bold">x % (x jaar)</span></h6>
-                                        <h6 class="m-1">Termijnbedrag<span class="float-right font-weight-bold">€ x (per maand)</span></h6>
-                                        <h6 class="m-1">Looptijd<span class="float-right font-weight-bold">x Jaar (x maanden)</span></h6>
-                                        <h6 class="m-1">Totaalbedrag<span class="float-right font-weight-bold">€ x</span></h6>
+                                        <h6 class="m-1">Startdatum<span
+                                                class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
+                                        <h6 class="m-1">Einddatum<span
+                                                class="float-right font-weight-bold">dd-mm-jjjj</span></h6>
+                                        <h6 class="m-1">Hypotheeksom<span class="float-right font-weight-bold">€
+                                                x</span></h6>
+                                        <h6 class="m-1">Hypotheekvorm<span
+                                                class="float-right font-weight-bold">Annuïteiten / Lineaire</span></h6>
+                                        <h6 class="m-1">Marktwaarde<span class="float-right font-weight-bold">€ x</span>
+                                        </h6>
+                                        <h6 class="m-1">Rentevaste Periode<span class="float-right font-weight-bold">x %
+                                                (x jaar)</span></h6>
+                                        <h6 class="m-1">Termijnbedrag<span class="float-right font-weight-bold">€ x (per
+                                                maand)</span></h6>
+                                        <h6 class="m-1">Looptijd<span class="float-right font-weight-bold">x Jaar (x
+                                                maanden)</span></h6>
+                                        <h6 class="m-1">Totaalbedrag<span class="float-right font-weight-bold">€
+                                                x</span></h6>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -145,10 +172,10 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                        </div>
-                    </div>                        
 
+                        </div>
+                    </div>
+                </div>
                 <!-- Footer -->
                 <?php include_once 't_footer.html' ?>
 
