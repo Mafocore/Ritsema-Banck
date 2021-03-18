@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -28,68 +29,82 @@
 
                             <hr>
 
-                            <form class="user">
-                                <div class="form-group row">
+                            <form method="post" action="register.php">
+                                <?php include('errors.php'); ?>
+                                <div class="form-group row input-group">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control" id="exampleFirstName"
-                                            placeholder="Voornaam">
+                                        <input type="text" id="Voornaam" class="form-control"
+                                            value="<?php echo $Voornaam; ?>" placeholder="Voornaam">
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="exampleLastName"
-                                            placeholder="Achternaam">
+                                    <div class="col-sm-6 input-group">
+                                        <input type="text" id="Achternaam" class="form-control"
+                                            value="<?php echo $Achternaam;?>" placeholder="Achternaam">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <select class="form-control" id="gender">
-                                        <option value="" disabled selected>Maak uw keuze</option>
-                                        <option value="Men">Man</option>
-                                        <option value="Female">Vrouw</option>
-                                        <option value="NonBinair">Non binair</option>
-                                    </select>
+                                <div class="form-group input-group">
+                                    <input type="text" id="Gender" class="form-control" value="<?php echo $Gender;?>"
+                                        placeholder="Geslacht">
                                 </div>
-                                <div class="form-group">
-                                    <input type="date" class="form-control" id="dateOfBirth"
-                                        placeholder="Geboortedatum">
+                                <!--                                <div class="form-group input-group">-->
+                                <!--                                    <select class="form-control" id="gender">-->
+                                <!--                                        <option value="" disabled selected>Maak uw keuze</option>-->
+                                <!--                                        <option value="Men">Man</option>-->
+                                <!--                                        <option value="Female">Vrouw</option>-->
+                                <!--                                        <option value="NonBinair">Anders</option>-->
+                                <!--                                        <option value="Restant">Zeg ik liever niet</option>-->
+                                <!--                                    </select>-->
+                                <!--                                </div>-->
+                                <div class="form-group input-group">
+                                    <input type="text" id="Geboortedatum" class="form-control"
+                                        value="<?php echo $Geboortedatum;?>" placeholder="Geboortedatum (DD-MM-JJJJ)">
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" id="exampleInputEmail"
-                                        placeholder="E-mail">
+                                <div class="form-group input-group">
+                                    <input type="email" id="Email" class="form-control" value="<?php echo $Email;?>"
+                                        placeholder="Uw E-mail">
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row input-group">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control" id="exampleInputPassword"
-                                            placeholder="Wachtwoord">
+                                        <input type="password" id="Wachtwoord1" class="form-control"
+                                            value="<?php echo $Wachtwoord1;?>" placeholder="Wachtwoord">
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control" id="exampleRepeatPassword"
-                                            placeholder="Herhaal wachtwoord">
+                                    <div class="col-sm-6 input-group">
+                                        <input type="password" id="Wachtwoord2" class="form-control"
+                                            value="<?php echo $Wachtwoord2;?>" placeholder="Herhaal wachtwoord">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="phoneNumber"
+                                <div class="form-group input-group">
+                                    <input type="text" class="form-control" id="Mobiel" value="<?php echo $Mobiel;?>"
                                         placeholder="Mobiel / Telefoon">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-8 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control" id="streetname" placeholder="Straat">
+                                <div class="form-group row input-group">
+                                    <div class="col-sm-6 mb-3 mb-sm-0 input-group">
+                                        <input type="text" class="form-control" id="Straat"
+                                            value="<?php echo $Straat;?>" placeholder="Straatnaam">
                                     </div>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="exampleRepeatPassword"
-                                            placeholder="Huisnummer">
+                                    <div class="col-sm-3 input-group">
+                                        <input type="text" class="form-control" id="Huisnummer"
+                                            value="<?php echo $Huisnummer;?>" placeholder="HuisNr.">
+                                    </div>
+                                    <div class="col-sm-3 input-group">
+                                        <input type="text" class="form-control" id="Postcode"
+                                            value="<?php echo $Toevoeging;?>" placeholder="Toevoeging">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="zipCode" placeholder="Postcode">
+                                <div class="form-group input-group">
+                                    <input type="text" class="form-control" id="Postcode"
+                                        value="<?php echo $Postcode;?>" placeholder="Postcode">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="city" placeholder="Woonplaats">
+                                <div class="form-group input-group">
+                                    <input type="text" class="form-control" id="Woonplaats"
+                                        value="<?php echo $Woonplaats;?>" placeholder="Woonplaats">
                                 </div>
 
-                                <div class="form-group row">
+                                <div class="form-group row input-group">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <a href="login.php" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block"
+                                            id="reg_persoon" href="login.php">
                                             Registeer account
-                                        </a>
+                                        </button>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
