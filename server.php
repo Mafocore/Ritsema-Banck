@@ -1,89 +1,150 @@
 <?php
 session_start();
+// PDO connect
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "register";
 
-// initializing variables
-$Voornaam = "";
-$Achternaam = "";
-$Gender = "";
-$Geboortedatum = "";
-$Email = "";
-$Wachtwoord = "";
-$Wachtwoord1 = "";
-$Wachtwoord2 = "";
-$Mobiel = "";
-$Straat = "";
-$Huisnummer = "";
-$Toevoeging = "";
-$Postcode = "";
-$Woonplaats = "";
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+}
+catch(PDOException $e)
+{
+    echo "Connection failed: " . $e->getMessage();
+}
 
-$errors = array();
+if(isset($_POST['submit'])){
 
-// connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'register');
+    //$Sessie = $_SESSION['ID']['Voornaam']['Achternaam']['Email'];
 
-// REGISTER USER
-if (isset($_POST['reg_persoon'])) {
-    // receive all input values from the form
-    $Voornaam = mysqli_real_escape_string($db, $_POST['Voornaam']);
-    $Achternaam = mysqli_real_escape_string($db, $_POST['Achternaam']);
-    $Gender = mysqli_real_escape_string($db, $_POST['Gender']);
-    $Geboortedatum = mysqli_real_escape_string($db, $_POST['Geboortedatum']);
-    $Email = mysqli_real_escape_string($db, $_POST['Email']);
-    $Wachtwoord1 = mysqli_real_escape_string($db, $_POST['Wachtwoord']);
-    $Wachtwoord2 = mysqli_real_escape_string($db, $_POST['Wachtwoord2']);
-    $Mobiel = mysqli_real_escape_string($db, $_POST['Mobiel']);
-    $Straat = mysqli_real_escape_string($db, $_POST['Straat']);
-    $Huisnummer = mysqli_real_escape_string($db, $_POST['Huisnummer']);
-    $Toevoeging = mysqli_real_escape_string($db, $_POST['Toevoeging']);
-    $Postcode = mysqli_real_escape_string($db, $_POST['Postcode']);
-    $Woonplaats = mysqli_real_escape_string($db, $_POST['Woonplaats']);
+    $Voornaam = $_POST['Voornaam'];
+    $Achternaam = $_POST['Achternaam'];
+    $Gender = $_POST['Gender'];
+    $Geboortedatum =$_POST['Geboortedatum'];
+    $Email = $_POST['Email'];
+    $Wachtwoord1 = $_POST['Wachtwoord1'];
+    $Wachtwoord2 = $_POST['Wachtwoord2'];
+    $Mobiel = $_POST['Mobiel'];
+    $Straat = $_POST['Straat'];
+    $Huisnummer = $_POST['Huisnummer'];
+    $Toevoeging = $_POST['Toevoeging'];
+    $Postcode = $_POST['Postcode'];
+    $Woonplaats = $_POST['Woonplaats'];
 
-    // form validation: ensure that the form is correctly filled ...
-    // by adding (array_push()) corresponding error unto $errors array
-    if (empty($Voornaam)) { array_push($errors, "Username is required"); }
-    if (empty($Achternaam)) { array_push($errors, "Email is required"); }
-    if (empty($Wachtwoord1)) { array_push($errors, "Password is required"); }
-    if (empty($Wachtwoord2)) { array_push($errors, "Password is required"); }
-    if (empty($Gender)) { array_push($errors, "Gender is required"); }
-    if (empty($Geboortedatum)) { array_push($errors, "Date is required"); }
-    if (empty($Email)) { array_push($errors, "E-mail is required"); }
-    if (empty($Mobiel)) { array_push($errors, "Mobile is required"); }
-    if (empty($Straat)) { array_push($errors, "Street is required"); }
-    if (empty($Huisnummer)) { array_push($errors, "Housenumber is required"); }
-    if (empty($Postcode)) { array_push($errors, "Postcode is required"); }
-    if (empty($Woonplaats)) { array_push($errors, "Woonplaats is required"); }
-    if (Wachtwoord1 != Wachtwoord2) {
-        array_push($errors, "Wachtwoorden komen niet overeen");
+    if ($Wachtwoord1 != $Wachtwoord2) {
+        $errors[] = "Wachtwoorden komen niet overeen";
     }
 
-    // first check the database to make sure
-    // a user does not already exist with the same username and/or email
-    $user_check_query = "SELECT * FROM user WHERE Email='$Email' OR Mobiel='$Mobiel' LIMIT 1";
-    $result = mysqli_query($db, $user_check_query);
-    $user = mysqli_fetch_assoc($result);
-
-    if ($user) { // if user exists
-        if ($user['Email'] === $Email) {
-            array_push($errors, "Email is al in gebruik");
-        }
-
-        if ($user['Mobiel'] === $Mobiel) {
-            array_push($errors, "Nummer is al in gebruik");
-        }
+    if($Voornaam==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
     }
 
-    // Finally, register user if there are no errors in the form
-    if (count($errors) === 0) {
-        $Wachtwoord = md5($Wachtwoord1);//encrypt the password before saving in the database
-
-        $query = "INSERT INTO user (Voornaam, Achternaam, Gender, Geboortedatum, Email, Wachtwoord, Mobiel, Straat, Huisnummer, Toevoeging, Postcode, Woonplaats) 
-  			  VALUES('$Voornaam', '$Achternaam', '$Gender', '$Geboortedatum', '$Email', '$Wachtwoord', '$Mobiel', '$Straat', '$Huisnummer', '$Toevoeging', '$Postcode', '$Woonplaats' )";
-        mysqli_query($db, $query);
-        $_SESSION['Email'] = $Email;
-        $_SESSION['success'] = "You are now logged in";
-        header('location: dashboard.php');
+    if($Achternaam==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
     }
+
+    if($Geboortedatum==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
+    }
+
+    if($Email==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
+    }
+
+    if($Wachtwoord1==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
+    }
+
+    if($Wachtwoord2==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
+    }
+
+    if($Mobiel==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
+    }
+
+    if($Straat==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
+    }
+
+    if($Huisnummer==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
+    }
+
+    if($Postcode==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
+    }
+
+    if($Woonplaats==''){
+        echo "<script>alert('Please enter your email!')</script>";
+        exit();
+    }
+
+    // Validation and field insertion
+
+    $query = $conn->prepare( "SELECT `Email` FROM `user` WHERE `email` = ?" );
+    $query->bindValue( 1, $Email );
+    $query->execute();
+
+    if( $query->rowCount() > 0 ) { # If rows are found for query
+        echo "Email found!";
+    }
+    else {
+        echo "Email not found!";
+    }
+
+    $query = $conn->prepare( "SELECT `Mobiel` FROM `user` WHERE `Mobiel` = ?" );
+    $query->bindValue( 1, $Mobiel );
+    $query->execute();
+
+    if( $query->rowCount() > 0 ) { # If rows are found for query
+        echo "Email found!";
+    }
+    else {
+        echo "Mobile not found!";
+    }
+
+    $options = [
+            'cost' => 12,
+    ];
+
+    password_hash($Wachtwoord1, PASSWORD_BCRYPT, $options);//encrypt the password before saving in the database
+    $Wachtwoord = $Wachtwoord1;
+
+    $insert = $conn->prepare("INSERT INTO user (ID, Voornaam, Achternaam, Gender, Geboortedatum, Email, Wachtwoord, Mobiel, Straat, Huisnummer, Toevoeging, Postcode, Woonplaats) 
+  			  VALUES(':ID', ':Voornaam', ':Achternaam', ':Gender', ':Geboortedatum', ':Email', ':Wachtwoord', ':Mobiel', ':Straat', ':Huisnummer', ':Toevoeging', ':Postcode', ':Woonplaats' )");
+    $insert->bindParam(':ID', $ID);
+    $insert->bindParam(':Voornaam', $Voornaam);
+    $insert->bindParam(':Achternaam', $Achternaam);
+    $insert->bindParam(':Gender', $Gender);
+    $insert->bindParam(':Geboortedatum', $Geboortedatum);
+    $insert->bindParam(':Email', $Email);
+    $insert->bindParam(':Wachtwoord', $Wachtwoord);
+    $insert->bindParam(':Mobiel', $Mobiel);
+    $insert->bindParam(':Straat', $Straat);
+    $insert->bindParam(':Huisnummer', $Huisnummer);
+    $insert->bindParam(':Toevoeging', $Toevoeging);
+    $insert->bindParam(':Postcode', $Postcode);
+    $insert->bindParam(':Woonplaats', $Woonplaats);
+
+    $insert->execute();
+
+    header("location:login.php");
+    exit();
 }
 
 // ...
