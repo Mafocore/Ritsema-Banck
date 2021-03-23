@@ -176,6 +176,7 @@
                         </div>
                     </div>
                 </div>
+                <a href="logout.php"> logout</a>
                 <!-- Footer -->
                 <?php include_once 't_footer.html' ?>
 

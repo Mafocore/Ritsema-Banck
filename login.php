@@ -11,6 +11,41 @@
 </head>
 
 <body class="bg-gradient-primary">
+<?php include_once 't_sources.html';
+    session_start();
+    include("db.php");
+       
+    $msg = ""; 
+    if(isset($_POST['submitBtnLogin'])) {
+      $email = trim($_POST['email']);
+      $password = trim($_POST['password']);
+      if($email != "" && $password != "") {
+        try {
+          $query = "select * from `user_login` where `email`=:email and `password`=:password";
+          $stmt = $db->prepare($query);
+          $stmt->bindParam('email', $email, PDO::PARAM_STR);
+          $stmt->bindValue('password', $password, PDO::PARAM_STR);
+          $stmt->execute();
+          $count = $stmt->rowCount();
+          $row   = $stmt->fetch(PDO::FETCH_ASSOC);
+          if($count == 1 && !empty($row)) {
+            /******************** Your code ***********************/
+            $_SESSION['sess_user_id']   = $row['uid'];
+            $_SESSION['sess_user_name'] = $row['username'];
+            $_SESSION['sess_name'] = $row['name'];
+           
+          } else {
+            $msg = "Ongeldig e-mail of wachtwoord";
+          }
+        } catch (PDOException $e) {
+          echo "Error : ".$e->getMessage();
+        }
+      } else {
+        $msg = "Voer beide velden in!";
+      }
+    }
+    
+    ?>
 
     <div class="container">
 
@@ -68,7 +103,7 @@
     </div>
 
     <!-- Sources Files -->
-    <?php include_once 't_sources.html' ?>
+    
 
 </body>
 
