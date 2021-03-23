@@ -120,15 +120,9 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Is de woning energiezuinig?</label>
-                                                        <select class="form-control" id="energyEfficiency">
-                                                            <option value="IdontKnow">Dat weet ik niet</option>
-                                                            <option value="No">Nee</option>
-                                                            <option value="DoubleA">(A++) Energielabel</option>
-                                                            <option value="NullOnTheMeter">Nul op de meter</option>
-                                                            <option value="NullOnTheMeterWithGaranty">Nul op de meter
-                                                                met EP-garantie</option>
-                                                        </select>
+                                                        <label>Wat is uw energielabel?</label>
+                                                        <input type="text" class="form-control" id="housePrice"
+                                                            placeholder="">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="">Schatting van de koopprijs (of

@@ -65,7 +65,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-phone-square m-1"></i>[Telefoon nummer]</h6>
-                                    <p class="mt-2 mb-0">Beschikbaarheid</p>
+                                    <p class="mt-2 mb-0">Ma-Vr 08:00-17:00</p>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-envelope-square m-1"></i>[Email]</h6>
-                                    <p class="mt-2 mb-0">Reactietijd</p>
+                                    <p class="mt-2 mb-0">Binnen een werkdag</p>
                                 </div>
                             </div>
                         </div>

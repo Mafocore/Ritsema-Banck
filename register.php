@@ -14,16 +14,16 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="row justify-content-center">
+    <div class="col-xl-7 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg my-6">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-login-image"></div>
-                    <div class="col-lg-7">
+                    
                         <div class="p-5">
                             <div class="text-center">
-                                <h1>Ritsema Banck</h1>
+                                <h1>Ritsema <img src="img/Klavervier.png" alt="Klavertje vier icoon" width="10%" height="10%"> Banck</h1>
                                 <h1 class="h4 text-gray-900 mb-4">Maak een account aan!</h1>
                             </div>
 
@@ -76,29 +76,10 @@
                                     <input type="text" class="form-control" id="Mobiel" value="<?php echo $Mobiel;?>"
                                         placeholder="Mobiel / Telefoon">
                                 </div>
-                                <div class="form-group row input-group">
-                                    <div class="col-sm-6 mb-3 mb-sm-0 input-group">
-                                        <input type="text" class="form-control" id="Straat"
-                                            value="<?php echo $Straat;?>" placeholder="Straatnaam">
-                                    </div>
-                                    <div class="col-sm-3 input-group">
-                                        <input type="text" class="form-control" id="Huisnummer"
-                                            value="<?php echo $Huisnummer;?>" placeholder="HuisNr.">
-                                    </div>
-                                    <div class="col-sm-3 input-group">
-                                        <input type="text" class="form-control" id="Postcode"
-                                            value="<?php echo $Toevoeging;?>" placeholder="Toevoeging">
-                                    </div>
-                                </div>
                                 <div class="form-group input-group">
-                                    <input type="text" class="form-control" id="Postcode"
-                                        value="<?php echo $Postcode;?>" placeholder="Postcode">
+                                    <input type="text" class="form-control" id="BSN"
+                                        value="<?php echo $BSN;?>" placeholder="Burger Service Nummer">
                                 </div>
-                                <div class="form-group input-group">
-                                    <input type="text" class="form-control" id="Woonplaats"
-                                        value="<?php echo $Woonplaats;?>" placeholder="Woonplaats">
-                                </div>
-
                                 <div class="form-group row input-group">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <button type="submit" class="btn btn-primary btn-user btn-block"
@@ -126,7 +107,8 @@
                                 <a class="small" href="login.php">Heb je al een account? Login!</a>
                             </div>
                         </div>
-                    </div>
+</div>
+</div>
                 </div>
             </div>
         </div>

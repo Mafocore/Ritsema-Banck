@@ -31,7 +31,9 @@
                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 100%;" src="img/hoofdkantoor.jpg" alt="">
                     </div>
                     <div class="text-center">
-                        <h1 class="font-weight-bold text-primary" style="font-size: 50px">Ritsema Banck</h1>
+                    <h1 class="font-weight-bold text-primary" style="font-size: 50px">Ritsema 
+                    <img src="img/Klavervier.png" alt="Klavertje vier icoon" width="4%" height="4%"> Banck</h1>
+
                         <h4 class="">Hypotheken voor landhuizen</h4>
                         <div class="card border mt-3">
                             <p class="m-4" style="text-align: justify">Lorem ipsum dolor sit amet, consectetuer
@@ -59,7 +61,7 @@
                                 <div class="card-body">
                                     <h6 class="m-0 font-weight-bold text-primary"><i
                                             class="fas fa-phone-square m-1"></i>[Telefoon nummer]</h6>
-                                    <p class="mt-2 mb-0">Beschikbaarheid</p>
+                                    <p class="mt-2 mb-0">Ma-Vr 08:00-17:00</p>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +71,7 @@
                                 <div class="card-body">
                                     <h6 class="m-0 font-weight-bold text-primary"><i
                                             class="fas fa-envelope-square m-1"></i>[Email]</h6>
-                                    <p class="mt-2 mb-0">Reactietijd</p>
+                                    <p class="mt-2 mb-0">Binnen 1 werkdag</p>
                                 </div>
                             </div>
                         </div>

@@ -16,6 +16,7 @@ $Huisnummer = "";
 $Toevoeging = "";
 $Postcode = "";
 $Woonplaats = "";
+$BSN = "";
 
 $errors = array();
 
