@@ -72,21 +72,8 @@
                                             <input type="text" class="form-control" id="phoneNumber"
                                                 placeholder="Mobiel / Telefoon">
                                         </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-8 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control" id="streetname"
-                                                    placeholder="Straat">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="number" class="form-control" id="exampleRepeatPassword"
-                                                    placeholder="Huisnummer">
-                                            </div>
-                                        </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="zipCode" placeholder="Postcode">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="city" placeholder="Woonplaats">
+                                            <label class="form-control" id="BSN">BSN: 089768574635</label>
                                         </div>
                                         <hr>
 

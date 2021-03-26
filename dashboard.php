@@ -31,6 +31,16 @@
                 <div class="container">
 
                     <!-- PAGE CONTENT GOES HERE -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-envelope-square m-1"></i>Berichten</h6>
+                        </div>
+                        <div class="card-body">
+                        <p>Recente hyptheek afbetaald.</p>
+                        <p>Let op! Uw rente verloopt eind deze maand.</p>
+                        <p>Mijn Process is geüpdate</p>
+                        </div>
+                    </div>
 
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
@@ -176,7 +186,6 @@
                         </div>
                     </div>
                 </div>
-                <a href="logout.php"> logout</a>
                 <!-- Footer -->
                 <?php include_once 't_footer.html' ?>
 
