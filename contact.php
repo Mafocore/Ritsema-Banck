@@ -1,3 +1,4 @@
+<?php require ('send-mail.php') ?>
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -37,10 +38,10 @@
                         </div>
                         <div class="card-body">
 
-                            <form class="user">
+                            <form method="post" class="user">
                                 <div class="form-group">
-                                    <label for="'subject">Onderwerp</label>
-                                    <select class="form-control" id="subject">
+                                    <label for="subject">Onderwerp</label>
+                                    <select name="Subject" class="form-control" id="subject">
                                         <option value="Mortgage">Hypotheek</option>
                                         <option value="MonneyAffairs">Geldzaken</option>
                                         <option value="Consultation">Adviesgesprek</option>
@@ -48,10 +49,9 @@
                                     </select>
                                 </div>
                                 <label>Bericht</label>
-                                <textarea class="form-control mb-4" style="min-height: 300px;"></textarea>
-                                <a href="" class="btn btn-primary btn-user btn-block">
-                                    Verstuur
-                                </a>
+                                <textarea name="Message" class="form-control mb-4" style="min-height: 300px;"></textarea>
+                                <input name="send" value="Verstuur" class="btn btn-primary btn-user btn-block">
+                                    
                             </form>
                         </div>
                     </div>
