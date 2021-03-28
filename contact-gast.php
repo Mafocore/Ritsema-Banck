@@ -1,3 +1,4 @@
+<?php require ('send-mail-guest.php')?>
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -5,7 +6,7 @@
 
     <?php include_once 't_head.html'; ?>
 
-    <!-- Page Title --> 
+    <!-- Page Title -->
     <title>Contact - Ritsema Banck</title>
 
 </head>
@@ -28,33 +29,31 @@
                 <div class="container">
 
                     <!-- Contact Form -->
-                    
+
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Contact Formulier</h6>
                         </div>
-                        <div class="card-body">
-                        <label>Email Adres</label>
-                    <div class="form-group">
-                        <input class="form-control">
-                    </div>
-                            <form class="user">
+                        <form method="post" action="send-mail-guest.php" class="card-body">
+                            <label>Email Adres</label>
+                            <div class="form-group">
+                                <input name="Email" type="email" class="form-control">
+                            </div>
+                            <div class="user">
                                 <div class="form-group">
                                     <label for="'subject">Onderwerp</label>
-                                    <select class="form-control" id="subject">
+                                    <select name="Subject" class="form-control" id="subject">
                                         <option value="Mortgage">Hypotheek</option>
                                         <option value="MonneyAffairs">Geldzaken</option>
                                         <option value="Consultation">Adviesgesprek</option>
                                         <option value="Other">Overige</option>
                                     </select>
                                 </div>
-                                    <label>Bericht</label>
-                                    <textarea class="form-control mb-4" style="min-height: 300px;"></textarea>
-                                <a href="" class="btn btn-primary btn-user btn-block">
-                                    Verstuur
-                                </a>
-                            </form>
-                        </div>
+                                <label>Bericht</label>
+                                <textarea name="Message" class="form-control mb-4" style="min-height: 300px;"></textarea>
+                                <input name="send" type="submit" class="btn btn-primary btn-user btn-block" value="Verstuur">
+                            </div>
+                        </form>
                     </div>
 
                     <div class="text-center mb-4">
@@ -65,7 +64,8 @@
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-phone-square m-1"></i>[Telefoon nummer]</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><i
+                                            class="fas fa-phone-square m-1"></i>[Telefoon nummer]</h6>
                                     <p class="mt-2 mb-0">Ma-Vr 08:00-17:00</p>
                                 </div>
                             </div>
@@ -74,7 +74,8 @@
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-envelope-square m-1"></i>[Email]</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><i
+                                            class="fas fa-envelope-square m-1"></i>[Email]</h6>
                                     <p class="mt-2 mb-0">Binnen een werkdag</p>
                                 </div>
                             </div>
