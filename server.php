@@ -36,42 +36,42 @@ if(isset($_POST['submit'])){
         $errors[] = "Wachtwoorden komen niet overeen";
     }
 
-    if($Voornaam===''){
+    if(empty($Voornaam)){
         echo "<script>alert('Please enter your firstname!')</script>";
         exit();
     }
 
-    if($Achternaam===''){
+    if(empty($Achternaam)){
         echo "<script>alert('Please enter your secondname!')</script>";
         exit();
     }
 
-    if($Geboortedatum===''){
+    if(empty($Geboortedatum)){
         echo "<script>alert('Please enter your birthdate!')</script>";
         exit();
     }
 
-    if($Email===''){
+    if(empty($Email)){
         echo "<script>alert('Please enter your email!')</script>";
         exit();
     }
 
-    if($Wachtwoord1===''){
+    if(empty($Wachtwoord1)){
         echo "<script>alert('Please enter your Password!')</script>";
         exit();
     }
 
-    if($Wachtwoord2===''){
+    if(empty($Wachtwoord2)){
         echo "<script>alert('Please enter your Password validation!')</script>";
         exit();
     }
 
-    if($Mobiel===''){
+    if(empty($Mobiel)){
         echo "<script>alert('Please enter your Mobile!')</script>";
         exit();
     }
 
-    if($BSN===''){
+    if(empty($BSN)){
         echo "<script>alert('Please enter your BSN!')</script>";
         exit();
     }
