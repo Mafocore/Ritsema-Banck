@@ -1,4 +1,13 @@
-<?php require ('server.php')?>
+<?php 
+    require ('server.php');
+
+    $sql = "SELECT Voornaam, Achternaam, Geslacht, Geboortedatum, Email, Mobiel FROM user WHERE ID = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['sess_ID']]);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -42,39 +51,32 @@
 
                                     <hr>
 
-                                    <form class="user">
+                                    <form class="user" method="post">
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control" id="exampleFirstName"
-                                                    placeholder="Voornaam">
+                                                <input name="firstname" type="text" class="form-control" id="exampleFirstName"
+                                                    placeholder="<?php echo $user['Voornaam']?>">
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="exampleLastName"
-                                                    placeholder="Achternaam">
+                                                <input name="lastname" type="text" class="form-control" id="exampleLastName"
+                                                    placeholder="<?php echo $user['Achternaam']?>">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <select class="form-control" id="gender">
-                                                <option value="" disabled selected>Maak uw keuze</option>
-                                                <option value="Men">Man</option>
-                                                <option value="Female">Vrouw</option>
-                                                <option value="NonBinair">Non binair</option>
-                                            </select>
+                                        <div class="form-group input-group">
+                                            <input name="sex" type="text" name="Geslacht" class="form-control"
+                                                placeholder="<?php echo $user['Geslacht']?>" maxlength="200">
                                         </div>
                                         <div class="form-group">
-                                            <input type="date" class="form-control" id="dateOfBirth"
+                                            <input name="dateOfBirth" type="date" class="form-control" id="dateOfBirth"
                                                 placeholder="Geboortedatum">
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="exampleInputEmail"
-                                                placeholder="E-mail">
+                                            <input name="email" type="email" class="form-control" id="exampleInputEmail"
+                                                placeholder="<?php echo $user['Email']?>">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="phoneNumber"
-                                                placeholder="Mobiel / Telefoon">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-control" id="BSN">BSN: 089768574635</label>
+                                            <input name="phone" type="text" class="form-control" id="phoneNumber"
+                                                placeholder="<?php echo $user['Mobiel']?>">
                                         </div>
                                         <hr>
 
