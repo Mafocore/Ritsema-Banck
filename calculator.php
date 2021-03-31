@@ -92,7 +92,7 @@ if(isset($save))
                                                     <tr>
                                                         <div class="form-group row input-group">
                                                             <div class="buttons col-sm-12 mb-3 mb-sm-0">
-                                                                <input type="submit" name="save" value="Bereken"
+                                                                <input type="submit" name="save" value="Berekenen"
                                                                     class="btn btn-primary btn-user btn-block">
                                                             </div>
                                                         </div>

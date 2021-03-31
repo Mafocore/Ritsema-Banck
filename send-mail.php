@@ -12,14 +12,14 @@
         if (empty($subject) || empty($message))
         {
             // One or more fields are empty
-            header("Location: contact-gast.php?Empty-Fields");
+            header("Location: contact.php?Empty-Fields");
         }
 
         // Validate Email
         else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
         {
             // Email is not valid
-            header("Location: contact-gast.php?Invalid-Email");
+            header("Location: contact.php?Invalid-Email");
         }
         
         else 
@@ -29,7 +29,7 @@
             $txt = "You received an e-mail from ".$email."\n\n".$message;
             
             mail($mailto, $subject, $txt, $headers);
-            header("Location: contact-gast.php?Email-Send");
+            header("Location: contact.php?Email-Send");
         }
     }
 

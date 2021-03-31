@@ -51,7 +51,7 @@
                                 </div>
                                 <label>Bericht</label>
                                 <textarea name="Message" class="form-control mb-4" style="min-height: 300px;"></textarea>
-                                <input name="send" value="Verstuur" class="btn btn-primary btn-user btn-block">
+                                <input type="submit" name="send" value="Verstuur" class="btn btn-primary btn-user btn-block">
                                     
                             </form>
                         </div>
