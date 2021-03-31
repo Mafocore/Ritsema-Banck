@@ -31,8 +31,6 @@ if(isset($_POST['submit'])){
     $voornaamvar = filter_var($Voornaam, FILTER_SANITIZE_SPECIAL_CHARS);
     $achternaamvar = filter_var($Achternaam, FILTER_SANITIZE_SPECIAL_CHARS);
     $geslachtvar = filter_var($Geslacht, FILTER_SANITIZE_SPECIAL_CHARS);
-    $wachtwoord1var = filter_var($Wachtwoord1, FILTER_SANITIZE_SPECIAL_CHARS);
-    $wachtwoord2var = filter_var($Wachtwoord2, FILTER_SANITIZE_SPECIAL_CHARS);
 
     if(empty($voornaamvar)){
         $message="Voornaam is niet ingevuld";
@@ -69,14 +67,14 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-    if(empty($wachtwoord1var)){
+    if(empty($wachtwoord1)){
         $message="Wachtwoord is niet ingevuld";
         $_SESSION["error"] = $message;
         header("location: register.php");
         exit();
     }
 
-    if(empty($wachtwoord1var)){
+    if(empty($wachtwoord2)){
         $message="Herhaal uw wachtwoord";
         $_SESSION["error"] = $message;
         header("location: register.php");
@@ -127,7 +125,7 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-    $Wachtwoord = password_hash($wachtwoord1var, PASSWORD_BCRYPT, array("cost" => 12));
+    $Wachtwoord = password_hash($wachtwoord1, PASSWORD_BCRYPT, array("cost" => 12));
 
     $query = "INSERT INTO user (Voornaam, Achternaam, Geslacht, Geboortedatum, Email, Wachtwoord, Mobiel) VALUES (?,?,?,?,?,?,?)";
     $query = $pdo->prepare($query);
@@ -158,7 +156,6 @@ if(isset($_POST['login'])){
     $Email = !empty($_POST['Email']) ? trim($_POST['Email']) : null;
     $Wachtwoordlogin = !empty($_POST['Wachtwoord']) ? trim($_POST['Wachtwoord']) : null;
     $emailvar = filter_var($Email, FILTER_SANITIZE_EMAIL);
-    $wachtwoordvar = filter_var($Wachtwoordlogin, FILTER_SANITIZE_SPECIAL_CHARS);
 
     //Retrieve the user account information for the given username.
     $sql = "SELECT Voornaam, Achternaam, ID, Wachtwoord, Email FROM user WHERE Email = :Email";
