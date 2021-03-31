@@ -74,6 +74,12 @@
                                                     class="btn btn-primary btn-user btn-block">
                                             </div>
                                         </div>
+                                        <?php
+                                        if(isset($_SESSION["error"])){
+                                            $error = $_SESSION["error"];
+                                            echo "<span>$error</span>";
+                                        }
+                                        ?>
                                     </form>
                                 </div>
                             </div>
@@ -99,3 +105,7 @@
 <?php include_once ('t_footer_sticky.html')?>
 
 </html>
+
+<?php
+unset($_SESSION["error"]);
+?>

@@ -45,6 +45,12 @@
                                                     placeholder="Wachtwoord" maxlength="200">
                                             </div>
                                         </div>
+                                        <?php
+                                        if(isset($_SESSION["error"])){
+                                            $error = $_SESSION["error"];
+                                            echo "<span>$error</span>";
+                                        }
+                                        ?>
                                         <div class="form-group row input-group">
                                             <div class="buttons col-sm-12 mb-3 mb-sm-0">
                                                 <input type="submit" name="login" value="Inloggen"
@@ -54,19 +60,27 @@
                                     </form>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="text-center">
-                                <a class="small" href="forgot-password.php">Wachtwoord vergeten?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="register.php">Maak een account aan!</a>
-                            </div>
-                            <hr>
-                            <div class="col-sm-3 mb-12 -align-center">
-                                <a href="index.php" class="btn btn-primary btn-user btn-block">
-                                    <i class="fas fa-fw fa-home"></i>
-                                    Home
-                                </a>
+                            <div class="">
+                                <div class="p-5">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 mb-3 mb-sm-0">
+                                            <a class="small" href="forgot-password.php">Wachtwoord vergeten?</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 mb-3 mb-sm-0">
+                                            <a class="small" href="register.php">Maak een account aan!</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 mb-3 mb-sm-0">
+                                            <a href="index.php" class="btn btn-primary btn-user btn-block">
+                                                <i class="fas fa-fw fa-home"></i>
+                                                Home
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -79,3 +93,7 @@
 <?php include_once ('t_footer_sticky.html')?>
 
 </html>
+
+<?php
+unset($_SESSION["error"]);
+?>

@@ -15,12 +15,11 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //echo "Connected successfully";
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    echo "Er ging iets mis herlaad de pagina!";
 }
 
 if(isset($_POST['submit'])){
 
-    //$Sessie = $_SESSION['ID']['Voornaam']['Achternaam']['Email'];
 
     $Voornaam = $_POST['Voornaam'];
     $Achternaam = $_POST['Achternaam'];
@@ -31,42 +30,66 @@ if(isset($_POST['submit'])){
     $Wachtwoord2 = $_POST['Wachtwoord2'];
     $Mobiel = $_POST['Mobiel'];
 
+    if(empty($Voornaam)){
+        $message="Voornaam is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
+        exit();
+    }
+
+    if(empty($Achternaam)){
+        $message="Achternaam is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
+        exit();
+    }
+
+    if(empty($Geboortedatum)){
+        $message="Geboortedatum is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
+        exit();
+    }
+
+    if(empty($Email)){
+        $message="Email is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
+        exit();
+    }
+
+    if(empty($Wachtwoord1)){
+        $message="Wachtwoord is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
+        exit();
+    }
+
+    if(empty($Wachtwoord2)){
+        $message="Herhaal uw wachtwoord";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
+        exit();
+    }
+
     if ($Wachtwoord1 !== $Wachtwoord2) {
-        $errors[] = "Wachtwoorden komen niet overeen";
-    }
-
-    if($Voornaam===''){
-        echo "<script>alert('Please enter your firstname!')</script>";
+        $message="De wachtwoorden komen niet overeen!";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
         exit();
     }
 
-    if($Achternaam===''){
-        echo "<script>alert('Please enter your secondname!')</script>";
+    if(empty($Mobiel)){
+        $message="Mobiel is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
         exit();
     }
 
-    if($Geboortedatum===''){
-        echo "<script>alert('Please enter your birthdate!')</script>";
-        exit();
-    }
-
-    if($Email===''){
-        echo "<script>alert('Please enter your email!')</script>";
-        exit();
-    }
-
-    if($Wachtwoord1===''){
-        echo "<script>alert('Please enter your Password!')</script>";
-        exit();
-    }
-
-    if($Wachtwoord2===''){
-        echo "<script>alert('Please enter your Password validation!')</script>";
-        exit();
-    }
-
-    if($Mobiel===''){
-        echo "<script>alert('Please enter your Mobile!')</script>";
+    if(!preg_match("/^[0-9]{10}+$/", $Mobiel)) {
+        $message="Ongeldig mobiele nummer";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
         exit();
     }
 
@@ -77,18 +100,22 @@ if(isset($_POST['submit'])){
     $query->execute();
 
     if( $query->rowCount() > 0 ) { # If rows are found for query
-        echo "<script>alert('Email is al in gebruik!')</script>";
+        $message="Email is al in gebruik!";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
+        exit();
     }
-
 
     $query = $pdo->prepare("SELECT `Mobiel` FROM `user` WHERE `Mobiel` = ?" );
     $query->bindValue( 1, $Mobiel );
     $query->execute();
 
     if( $query->rowCount() > 0 ) { # If rows are found for query
-        echo "<script>alert('Mobiel/tl.nummer is al in gebruik!')</script>";
+        $message="Mobiel is al in gebruik";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
+        exit();
     }
-
 
     $Wachtwoord = password_hash($Wachtwoord1, PASSWORD_BCRYPT, array("cost" => 12));
 
@@ -106,11 +133,15 @@ if(isset($_POST['submit'])){
         header('location: login.php');
         exit();
     }
-    header('location: login.php');
+    $message="Er ging iets mis bij de registratie probeer het opnieuw";
+    $_SESSION["error"] = $message;
+    header('location: register.php');
     exit();
 }
 
 if(isset($_POST['login'])){
+
+    $message="De combinatie Email en Wachtwoord is incorrect!";
 
     //Retrieve the field values from our login form.
     $Email = !empty($_POST['Email']) ? trim($_POST['Email']) : null;
@@ -133,7 +164,9 @@ if(isset($_POST['login'])){
     if($user === false){
         //Could not find a user with that username!
         //PS: You might want to handle this error in a more user-friendly manner!
-        die('Incorrect Email / password combination!');
+        $_SESSION["error"] = $message;
+        header("location: login.php");
+        exit();
     } else{
         //User account found. Check to see if the given password matches the
         //password hash that we stored in our users table.
@@ -145,9 +178,9 @@ if(isset($_POST['login'])){
         if($validPassword){
 
             //Provide the user with a login session.
-//            $_SESSION['sess_Voornaam'] = $Voornaam['Voornaam'];
-//            $_SESSION['sess_Achternaam'] = $Achternaam['Achternaam'];
-//            $_SESSION['sess_ID'] = $ID['ID'];
+            $_SESSION['sess_Voornaam'] = $Voornaam;
+            $_SESSION['sess_Achternaam'] = $Achternaam;
+            $_SESSION['sess_ID'] = $ID;
 
             //Redirect to our protected page, which we called home.php
             header('Location: dashboard.php');
@@ -155,7 +188,9 @@ if(isset($_POST['login'])){
 
         } else{
             //$validPassword was FALSE. Passwords do not match.
-            die('Incorrect username / password combination!');
+            $_SESSION["error"] = $message;
+            header("location: login.php");
+            exit();
         }
     }
 
