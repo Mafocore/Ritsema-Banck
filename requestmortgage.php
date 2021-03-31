@@ -25,7 +25,7 @@
             <div id="content">
 
                 <!-- Top Navigation Bar -->
-                <?php include_once 'Topbar.html' ?>
+                <?php include_once 'Topbar.php' ?>
 
                 <!-- Begin Page Content -->
                 <div class="container">

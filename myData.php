@@ -26,7 +26,7 @@
             <div id="content">
 
                 <!-- Top Navigation Bar -->
-                <?php include_once 'Topbar.html' ?>
+                <?php include_once 'Topbar.php' ?>
 
                 <div class="container">
                     <div class="col-xl-10 col-lg-12 col-md-9">

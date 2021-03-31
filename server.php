@@ -8,7 +8,6 @@ $username = "root";
 $password = "";
 $dbname = "register";
 
-
 try {
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
@@ -20,7 +19,6 @@ try {
 
 if(isset($_POST['submit'])){
 
-
     $Voornaam = $_POST['Voornaam'];
     $Achternaam = $_POST['Achternaam'];
     $Geslacht = $_POST['Geslacht'];
@@ -29,15 +27,21 @@ if(isset($_POST['submit'])){
     $Wachtwoord1 = $_POST['Wachtwoord1'];
     $Wachtwoord2 = $_POST['Wachtwoord2'];
     $Mobiel = $_POST['Mobiel'];
+    $emailvar = filter_var($Email, FILTER_SANITIZE_EMAIL);
+    $voornaamvar = filter_var($Voornaam, FILTER_SANITIZE_SPECIAL_CHARS);
+    $achternaamvar = filter_var($Achternaam, FILTER_SANITIZE_SPECIAL_CHARS);
+    $geslachtvar = filter_var($Geslacht, FILTER_SANITIZE_SPECIAL_CHARS);
+    $wachtwoord1var = filter_var($Wachtwoord1, FILTER_SANITIZE_SPECIAL_CHARS);
+    $wachtwoord2var = filter_var($Wachtwoord2, FILTER_SANITIZE_SPECIAL_CHARS);
 
-    if(empty($Voornaam)){
+    if(empty($voornaamvar)){
         $message="Voornaam is niet ingevuld";
         $_SESSION["error"] = $message;
         header("location: register.php");
         exit();
     }
 
-    if(empty($Achternaam)){
+    if(empty($achternaamvar)){
         $message="Achternaam is niet ingevuld";
         $_SESSION["error"] = $message;
         header("location: register.php");
@@ -51,28 +55,35 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-    if(empty($Email)){
+    if(empty($emailvar)){
         $message="Email is niet ingevuld";
         $_SESSION["error"] = $message;
         header("location: register.php");
         exit();
     }
 
-    if(empty($Wachtwoord1)){
+    if (filter_var($emailvar, FILTER_VALIDATE_EMAIL) === false) {
+        $message="$emailvar Is geen geldige Email";
+        $_SESSION["error"] = $message;
+        header("location: register.php");
+        exit();
+    }
+
+    if(empty($wachtwoord1var)){
         $message="Wachtwoord is niet ingevuld";
         $_SESSION["error"] = $message;
         header("location: register.php");
         exit();
     }
 
-    if(empty($Wachtwoord2)){
+    if(empty($wachtwoord1var)){
         $message="Herhaal uw wachtwoord";
         $_SESSION["error"] = $message;
         header("location: register.php");
         exit();
     }
 
-    if ($Wachtwoord1 !== $Wachtwoord2) {
+    if ($wachtwoord1var !== $wachtwoord2var) {
         $message="De wachtwoorden komen niet overeen!";
         $_SESSION["error"] = $message;
         header("location: register.php");
@@ -94,9 +105,8 @@ if(isset($_POST['submit'])){
     }
 
     // Validation and field insertion
-
     $query = $pdo->prepare("SELECT `Email` FROM `user` WHERE `Email` = ?" );
-    $query->bindValue( 1, $Email );
+    $query->bindValue( 1, $emailvar);
     $query->execute();
 
     if( $query->rowCount() > 0 ) { # If rows are found for query
@@ -117,15 +127,15 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-    $Wachtwoord = password_hash($Wachtwoord1, PASSWORD_BCRYPT, array("cost" => 12));
+    $Wachtwoord = password_hash($wachtwoord1var, PASSWORD_BCRYPT, array("cost" => 12));
 
     $query = "INSERT INTO user (Voornaam, Achternaam, Geslacht, Geboortedatum, Email, Wachtwoord, Mobiel) VALUES (?,?,?,?,?,?,?)";
     $query = $pdo->prepare($query);
-    $query->bindParam('1', $Voornaam);
-    $query->bindParam('2', $Achternaam);
-    $query->bindParam('3', $Geslacht);
+    $query->bindParam('1', $voornaamvar);
+    $query->bindParam('2', $achternaamvar);
+    $query->bindParam('3', $geslachtvar);
     $query->bindParam('4', $Geboortedatum);
-    $query->bindParam('5', $Email);
+    $query->bindParam('5', $emailvar);
     $query->bindParam('6', $Wachtwoord);
     $query->bindParam('7', $Mobiel);
     $query->execute();
@@ -146,13 +156,15 @@ if(isset($_POST['login'])){
     //Retrieve the field values from our login form.
     $Email = !empty($_POST['Email']) ? trim($_POST['Email']) : null;
     $Wachtwoordlogin = !empty($_POST['Wachtwoord']) ? trim($_POST['Wachtwoord']) : null;
+    $emailvar = filter_var($Email, FILTER_SANITIZE_EMAIL);
+    $wachtwoordvar = filter_var($Wachtwoordlogin, FILTER_SANITIZE_SPECIAL_CHARS);
 
     //Retrieve the user account information for the given username.
     $sql = "SELECT ID, Voornaam, Achternaam, Email, Wachtwoord FROM user WHERE Email = :Email";
     $stmt = $pdo->prepare($sql);
 
     //Bind value.
-    $stmt->bindValue(':Email', $Email);
+    $stmt->bindValue(':Email', $emailvar);
 
     //Execute.
     $stmt->execute();
@@ -193,5 +205,4 @@ if(isset($_POST['login'])){
             exit();
         }
     }
-
 }
