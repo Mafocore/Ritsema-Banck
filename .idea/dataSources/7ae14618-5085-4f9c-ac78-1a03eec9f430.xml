@@ -1048,120 +1048,193 @@
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="333" parent="6" name="hypotheken"/>
-    <table id="334" parent="6" name="user"/>
-    <column id="335" parent="333" name="IDhypo">
+    <table id="333" parent="6" name="aanvraag"/>
+    <table id="334" parent="6" name="hypotheken"/>
+    <table id="335" parent="6" name="user"/>
+    <column id="336" parent="333" name="IDaanvraag">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="336" parent="333" name="Email">
+    <column id="337" parent="333" name="Brutoinkomen">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="337" parent="333" name="Einddatum">
-      <Position>3</Position>
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="338" parent="333" name="Hypotheeksom">
-      <Position>4</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="339" parent="333" name="Hypotheekvorm">
-      <Position>5</Position>
+    <column id="338" parent="333" name="partnerkoop">
+      <Position>3</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <column id="339" parent="333" name="partnernaam">
+      <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="340" parent="333" name="Marktwaarde">
+    <column id="340" parent="333" name="partnerdatum">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="341" parent="333" name="partnerinkomen">
       <Position>6</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="341" parent="333" name="Rentevast">
+    <column id="342" parent="333" name="schulden">
       <Position>7</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="342" parent="333" name="Termijnbedrag">
+    <column id="343" parent="333" name="schuldbedrag">
       <Position>8</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="343" parent="333" name="Looptijd">
+    <column id="344" parent="333" name="Voorvorm">
       <Position>9</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="344" parent="333" name="Totaalbedrag">
+    <column id="345" parent="333" name="Voorloop">
       <Position>10</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="346" parent="333" name="Voorrente">
+      <Position>11</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="347" parent="333" name="Eigengeld">
+      <Position>12</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="345" parent="333" name="IDhypo">
+    <column id="348" parent="333" name="vragen">
+      <Position>13</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <column id="349" parent="333" name="Voorwaarden">
+      <Position>14</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="350" parent="333" name="IDaanvraag">
+      <ColNames>IDaanvraag</ColNames>
+      <Type>btree</Type>
+    </index>
+    <foreign-key id="351" parent="333" name="aanvraag_ibfk_1">
+      <ColNames>IDaanvraag</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="352" parent="334" name="IDhypo">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="353" parent="334" name="Einddatum">
+      <Position>2</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="354" parent="334" name="Hypotheeksom">
+      <Position>3</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="355" parent="334" name="Hypotheekvorm">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="356" parent="334" name="Marktwaarde">
+      <Position>5</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="357" parent="334" name="Rentevast">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="358" parent="334" name="Termijnbedrag">
+      <Position>7</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="359" parent="334" name="Looptijd">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="360" parent="334" name="Totaalbedrag">
+      <Position>9</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="361" parent="334" name="IDhypo">
       <ColNames>IDhypo</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="346" parent="333" name="hypotheken_ibfk_1">
+    <foreign-key id="362" parent="334" name="hypotheken_ibfk_1">
       <ColNames>IDhypo</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="347" parent="334" name="ID">
+    <column id="363" parent="335" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="348" parent="334" name="Voornaam">
+    <column id="364" parent="335" name="Voornaam">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="349" parent="334" name="Achternaam">
+    <column id="365" parent="335" name="Achternaam">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="350" parent="334" name="Geslacht">
+    <column id="366" parent="335" name="Geslacht">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="351" parent="334" name="Geboortedatum">
+    <column id="367" parent="335" name="Geboortedatum">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="352" parent="334" name="Email">
+    <column id="368" parent="335" name="Email">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="353" parent="334" name="Wachtwoord">
+    <column id="369" parent="335" name="Wachtwoord">
       <Position>7</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="354" parent="334" name="Mobiel">
+    <column id="370" parent="335" name="Mobiel">
       <Position>8</Position>
       <DataType>varchar(14)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="355" parent="334" name="UserDT">
+    <index id="371" parent="335" name="UserDT">
       <ColNames>Email
 Mobiel</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="356" parent="334" name="PRIMARY">
+    <key id="372" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="357" parent="334" name="UserDT">
+    <key id="373" parent="335" name="UserDT">
       <ColNames>Email
 Mobiel</ColNames>
       <UnderlyingIndexName>UserDT</UnderlyingIndexName>

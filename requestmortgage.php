@@ -107,37 +107,37 @@
                                                             placeholder="">
                                                     </div>
 
-                                                    <!-- Woning -->
-                                                    <hr>
-                                                    <label>Woning:</label>
-                                                    <div class="form-group">
-                                                        <div class="custom-control custom-checkbox small">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="yesIFoundHouse">
-                                                            <label class="custom-control-label" for="yesIFoundHouse">
-                                                                Ja, ik heb al een huis gevonden.
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="'houseType">Wat voor soort woning is het?</label>
-                                                        <select class="form-control" id="houseType">
-                                                            <option value="BestaandeWoning">Bestaande woning</option>
-                                                            <option value="NieuwbouwWoning">Nieuwbouw woning</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Wat is uw energielabel?</label>
-                                                        <input type="text" class="form-control" id="housePrice"
-                                                            placeholder="">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="">Schatting van de koopprijs (of
-                                                            marktwaarde)</label>
-                                                        <input type="text" class="form-control" id="housePrice"
-                                                            placeholder="">
-                                                    </div>
-                                                    <hr>
+                                                    <!-- Woning   Onnodig gedeelte-->
+<!--                                                    <hr>-->
+<!--                                                    <label>Woning:</label>-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <div class="custom-control custom-checkbox small">-->
+<!--                                                            <input type="checkbox" class="custom-control-input"-->
+<!--                                                                id="yesIFoundHouse">-->
+<!--                                                            <label class="custom-control-label" for="yesIFoundHouse">-->
+<!--                                                                Ja, ik heb al een huis gevonden.-->
+<!--                                                            </label>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <label for="'houseType">Wat voor soort woning is het?</label>-->
+<!--                                                        <select class="form-control" id="houseType">-->
+<!--                                                            <option value="BestaandeWoning">Bestaande woning</option>-->
+<!--                                                            <option value="NieuwbouwWoning">Nieuwbouw woning</option>-->
+<!--                                                        </select>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <label>Wat is uw energielabel?</label>-->
+<!--                                                        <input type="text" class="form-control" id="housePrice"-->
+<!--                                                            placeholder="">-->
+<!--                                                    </div>-->
+<!--                                                    <div class="form-group">-->
+<!--                                                        <label class="">Schatting van de koopprijs (of-->
+<!--                                                            marktwaarde)</label>-->
+<!--                                                        <input type="text" class="form-control" id="housePrice"-->
+<!--                                                            placeholder="">-->
+<!--                                                    </div>-->
+<!--                                                    <hr>-->
 
                                                     <!-- Hypotheek -->
                                                     <label>Over je hypotheek</label>
