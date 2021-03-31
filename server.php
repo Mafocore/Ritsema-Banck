@@ -125,7 +125,7 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-    $Wachtwoord = password_hash($wachtwoord1, PASSWORD_BCRYPT, array("cost" => 12));
+    $Wachtwoord = password_hash($Wachtwoord1, PASSWORD_BCRYPT, array("cost" => 12));
 
     $query = "INSERT INTO user (Voornaam, Achternaam, Geslacht, Geboortedatum, Email, Wachtwoord, Mobiel) VALUES (?,?,?,?,?,?,?)";
     $query = $pdo->prepare($query);
