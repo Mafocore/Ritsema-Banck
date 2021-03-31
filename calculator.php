@@ -1,26 +1,18 @@
-<!-- Berekening is niet accuraat! -->
+<!-- Berekening kan mogelik niet accuraat zijn-->
 <?php 
 
 extract($_POST);
 if(isset($save))
 {
-	switch($ch)
-	{
-		case 'Annuïteiten':
-		$res=$fn*$sn/10;
-		break;
+		$interest= 0.01 * $ch / 12;
+        $groeigetal= (1 + $interest) ** (12*240);
+        $annuiteit= (0.01 * $sn * $fn) / 12;
+        $deelfactor= $interest * $groeigetal / ($groeigetal - 1);
+      
+        $resultaat = $annuiteit / $deelfactor;
+        $res= round($resultaat);
+        
 		
-		case 'Lineair':
-		$res=$fn*$sn/5;
-		break;
-
-        case '':
-            echo "<script>alert('Kies u hypotheek vorm')</script>";
-            break;
-
-       				
-	}
-	
 }
 
 
@@ -82,21 +74,18 @@ if(isset($save))
                                                     <tr>
                                                         <div class="form-group row input-group">
                                                             <div class="col-sm-12 mb-3 mb-sm-0">
-                                                                <label> U leeftijd</label>
+                                                                <label> Woonquote in €</label>
                                                                 <input type="number" name="sn" class="form-control"
                                                                     placeholder="" value="<?php  echo @$sn;?>">
                                                             </div>
                                                         </div>
                                                     </tr>
                                                     <tr>
-                                                        <div class="form-group row input-group">
+                                                    <div class="form-group row input-group">
                                                             <div class="col-sm-12 mb-3 mb-sm-0">
-                                                                <label for="'houseType">Kies u hypotheek vorm</label>
-                                                                <select class="form-control" name="ch">
-                                                                    <option disabled selected>Maak uw keuze</option>
-                                                                    <option>Annuïteiten</option>
-                                                                    <option>Lineair</option>
-                                                                </select>
+                                                                <label> Hypotheekrente in %</label>
+                                                                <input type="number" name="ch" class="form-control"
+                                                                    placeholder="" value="<?php  echo @$ch;?>">
                                                             </div>
                                                         </div>
                                                     </tr>
