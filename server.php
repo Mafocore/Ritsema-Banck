@@ -67,21 +67,21 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-    if(empty($wachtwoord1)){
+    if(empty($Wachtwoord1)){
         $message="Wachtwoord is niet ingevuld";
         $_SESSION["error"] = $message;
         header("location: register.php");
         exit();
     }
 
-    if(empty($wachtwoord2)){
+    if(empty($Wachtwoord2)){
         $message="Herhaal uw wachtwoord";
         $_SESSION["error"] = $message;
         header("location: register.php");
         exit();
     }
 
-    if ($wachtwoord1var !== $wachtwoord2var) {
+    if ($Wachtwoord1 !== $Wachtwoord2) {
         $message="De wachtwoorden komen niet overeen!";
         $_SESSION["error"] = $message;
         header("location: register.php");
@@ -125,7 +125,7 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-    $Wachtwoord = password_hash($wachtwoord1, PASSWORD_BCRYPT, array("cost" => 12));
+    $Wachtwoord = password_hash($Wachtwoord1, PASSWORD_BCRYPT, array("cost" => 12));
 
     $query = "INSERT INTO user (Voornaam, Achternaam, Geslacht, Geboortedatum, Email, Wachtwoord, Mobiel) VALUES (?,?,?,?,?,?,?)";
     $query = $pdo->prepare($query);

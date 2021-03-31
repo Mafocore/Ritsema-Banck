@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="@localhost">
+<dataSource name="MariaDB - @localhost">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.20">
     <root id="1">
       <ServerVersion>10.4.18</ServerVersion>
@@ -1048,60 +1048,120 @@
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="333" parent="6" name="user"/>
-    <column id="334" parent="333" name="ID">
+    <table id="333" parent="6" name="hypotheken"/>
+    <table id="334" parent="6" name="user"/>
+    <column id="335" parent="333" name="IDhypo">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="336" parent="333" name="Email">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="337" parent="333" name="Einddatum">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="338" parent="333" name="Hypotheeksom">
+      <Position>4</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="339" parent="333" name="Hypotheekvorm">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="340" parent="333" name="Marktwaarde">
+      <Position>6</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="341" parent="333" name="Rentevast">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="342" parent="333" name="Termijnbedrag">
+      <Position>8</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="343" parent="333" name="Looptijd">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="344" parent="333" name="Totaalbedrag">
+      <Position>10</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="345" parent="333" name="IDhypo">
+      <ColNames>IDhypo</ColNames>
+      <Type>btree</Type>
+    </index>
+    <foreign-key id="346" parent="333" name="hypotheken_ibfk_1">
+      <ColNames>IDhypo</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="347" parent="334" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="335" parent="333" name="Voornaam">
+    <column id="348" parent="334" name="Voornaam">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="336" parent="333" name="Achternaam">
+    <column id="349" parent="334" name="Achternaam">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="337" parent="333" name="Geslacht">
+    <column id="350" parent="334" name="Geslacht">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="338" parent="333" name="Geboortedatum">
+    <column id="351" parent="334" name="Geboortedatum">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="339" parent="333" name="Email">
+    <column id="352" parent="334" name="Email">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="340" parent="333" name="Wachtwoord">
+    <column id="353" parent="334" name="Wachtwoord">
       <Position>7</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="341" parent="333" name="Mobiel">
+    <column id="354" parent="334" name="Mobiel">
       <Position>8</Position>
       <DataType>varchar(14)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="342" parent="333" name="UserDT">
+    <index id="355" parent="334" name="UserDT">
       <ColNames>Email
 Mobiel</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="343" parent="333" name="PRIMARY">
+    <key id="356" parent="334" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="344" parent="333" name="UserDT">
+    <key id="357" parent="334" name="UserDT">
       <ColNames>Email
 Mobiel</ColNames>
       <UnderlyingIndexName>UserDT</UnderlyingIndexName>
