@@ -1,4 +1,10 @@
-<?php require ('server.php')?>
+<?php 
+    
+    require ('server.php')
+
+    
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 

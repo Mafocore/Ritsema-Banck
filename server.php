@@ -67,14 +67,14 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-    if(empty($wachtwoord1)){
+    if(empty($Wachtwoord1)){
         $message="Wachtwoord is niet ingevuld";
         $_SESSION["error"] = $message;
         header("location: register.php");
         exit();
     }
 
-    if(empty($wachtwoord2)){
+    if(empty($Wachtwoord2)){
         $message="Herhaal uw wachtwoord";
         $_SESSION["error"] = $message;
         header("location: register.php");
