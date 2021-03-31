@@ -160,8 +160,10 @@ if(isset($_POST['login'])){
     $wachtwoordvar = filter_var($Wachtwoordlogin, FILTER_SANITIZE_SPECIAL_CHARS);
 
     //Retrieve the user account information for the given username.
-    $sql = "SELECT ID, Voornaam, Achternaam, Email, Wachtwoord FROM user WHERE Email = :Email";
+    $sql = "SELECT Voornaam, Achternaam, ID, Wachtwoord, Email FROM user WHERE Email = :Email";
     $stmt = $pdo->prepare($sql);
+
+
 
     //Bind value.
     $stmt->bindValue(':Email', $emailvar);
@@ -188,11 +190,8 @@ if(isset($_POST['login'])){
 
         //If $validPassword is TRUE, the login has been successful.
         if($validPassword){
-
             //Provide the user with a login session.
-            $_SESSION['sess_Voornaam'] = $Voornaam;
-            $_SESSION['sess_Achternaam'] = $Achternaam;
-            $_SESSION['sess_ID'] = $ID;
+            $_SESSION['sessie'] = $user;
 
             //Redirect to our protected page, which we called home.php
             header('Location: dashboard.php');
