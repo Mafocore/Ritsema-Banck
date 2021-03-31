@@ -1,11 +1,12 @@
 <?php
 
-session_start();
+    session_start();
 
-unset($_SESSION['user']);
+    unset($_SESSION['sess_Voornaam']);
+    unset($_SESSION['sess_Achternaam']);
+    unset($_SESSION['sess_ID']);
 
-session_destroy();
+    session_destroy();
 
-header("location: index,.php");
-exit();
+    header("location: login.php");
 ?>

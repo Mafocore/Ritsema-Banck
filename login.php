@@ -41,7 +41,7 @@
                                         </div>
                                         <div class="form-group row input-group">
                                             <div class="col-sm-12 mb-3 mb-sm-0">
-                                                <input type="text" name="Wachtwoord" class="form-control"
+                                                <input type="password" name="Wachtwoord" class="form-control"
                                                     placeholder="Wachtwoord" maxlength="200">
                                             </div>
                                         </div>

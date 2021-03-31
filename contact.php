@@ -1,4 +1,5 @@
 <?php require ('send-mail.php') ?>
+<?php require ('server.php')?>
 <!DOCTYPE html>
 <html lang="nl">
 

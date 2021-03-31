@@ -1,4 +1,13 @@
-<?php require ('server.php') ?>
+<?php
+
+    require ('server.php');
+
+    if (empty($_SESSION['sess_Voornaam']) || empty($_SESSION['sess_Achternaam']) || empty($_SESSION['sess_ID'])) 
+    {
+        header('Location: login.php');
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
