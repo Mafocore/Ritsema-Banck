@@ -30,49 +30,43 @@ if(isset($_POST['submit'])){
     $Wachtwoord1 = $_POST['Wachtwoord1'];
     $Wachtwoord2 = $_POST['Wachtwoord2'];
     $Mobiel = $_POST['Mobiel'];
-    $BSN = $_POST['BSN'];
 
     if ($Wachtwoord1 !== $Wachtwoord2) {
         $errors[] = "Wachtwoorden komen niet overeen";
     }
 
-    if(empty($Voornaam)){
+    if($Voornaam===''){
         echo "<script>alert('Please enter your firstname!')</script>";
         exit();
     }
 
-    if(empty($Achternaam)){
+    if($Achternaam===''){
         echo "<script>alert('Please enter your secondname!')</script>";
         exit();
     }
 
-    if(empty($Geboortedatum)){
+    if($Geboortedatum===''){
         echo "<script>alert('Please enter your birthdate!')</script>";
         exit();
     }
 
-    if(empty($Email)){
+    if($Email===''){
         echo "<script>alert('Please enter your email!')</script>";
         exit();
     }
 
-    if(empty($Wachtwoord1)){
+    if($Wachtwoord1===''){
         echo "<script>alert('Please enter your Password!')</script>";
         exit();
     }
 
-    if(empty($Wachtwoord2)){
+    if($Wachtwoord2===''){
         echo "<script>alert('Please enter your Password validation!')</script>";
         exit();
     }
 
-    if(empty($Mobiel)){
+    if($Mobiel===''){
         echo "<script>alert('Please enter your Mobile!')</script>";
-        exit();
-    }
-
-    if(empty($BSN)){
-        echo "<script>alert('Please enter your BSN!')</script>";
         exit();
     }
 
@@ -95,17 +89,10 @@ if(isset($_POST['submit'])){
         echo "<script>alert('Mobiel/tl.nummer is al in gebruik!')</script>";
     }
 
-    $query = $pdo->prepare('SELECT `BSN` FROM `user` WHERE `BSN` = ?' );
-    $query->bindValue( 1, $BSN );
-    $query->execute();
-
-    if( $query->rowCount() > 0 ) { # If rows are found for query
-        echo "<script>alert('ongeldig BSN nummer!')</script>";
-    }
 
     $Wachtwoord = password_hash($Wachtwoord1, PASSWORD_BCRYPT, array("cost" => 12));
 
-    $query = "INSERT INTO user (Voornaam, Achternaam, Geslacht, Geboortedatum, Email, Wachtwoord, Mobiel, BSN) VALUES (?,?,?,?,?,?,?,?)";
+    $query = "INSERT INTO user (Voornaam, Achternaam, Geslacht, Geboortedatum, Email, Wachtwoord, Mobiel) VALUES (?,?,?,?,?,?,?)";
     $query = $pdo->prepare($query);
     $query->bindParam('1', $Voornaam);
     $query->bindParam('2', $Achternaam);
@@ -114,7 +101,6 @@ if(isset($_POST['submit'])){
     $query->bindParam('5', $Email);
     $query->bindParam('6', $Wachtwoord);
     $query->bindParam('7', $Mobiel);
-    $query->bindParam('8', $BSN);
     $query->execute();
     if($query->rowCount() >0){
         header('location: login.php');

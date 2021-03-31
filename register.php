@@ -68,10 +68,6 @@
                                             <input type="text" class="form-control" name="Mobiel"
                                                 placeholder="Mobiel / Telefoon" maxlength="14">
                                         </div>
-                                        <div class="form-group input-group">
-                                            <input type="text" class="form-control" name="BSN"
-                                                placeholder="Burger Service Nummer" maxlength="10">
-                                        </div>
                                         <div class="form-group row input-group">
                                             <div class="buttons col-sm-6 mb-3 mb-sm-0">
                                                 <input type="submit" name="submit" value="Registeer account"
