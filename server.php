@@ -131,14 +131,15 @@ if(isset($_POST['submit'])){
 
     $query = "INSERT INTO user (Voornaam, Achternaam, Geslacht, Geboortedatum, Email, Wachtwoord, Mobiel) VALUES (?,?,?,?,?,?,?)";
     $query = $pdo->prepare($query);
-    $query->bindParam('1', $voornaamvar);
+    /*$query->bindParam('1', $voornaamvar);
     $query->bindParam('2', $achternaamvar);
     $query->bindParam('3', $geslachtvar);
     $query->bindParam('4', $Geboortedatum);
     $query->bindParam('5', $emailvar);
     $query->bindParam('6', $Wachtwoord);
     $query->bindParam('7', $Mobiel);
-    $query->execute();
+    $query->execute();*/
+    $query->execute([$voornaamvar, $achternaamvar, $geslachtvar, $Geboortedatum, $emailvar, $Wachtwoord, $Mobiel]);
     if($query->rowCount() >0){
         header('location: login.php');
         exit();
@@ -191,7 +192,9 @@ if(isset($_POST['login'])){
         //If $validPassword is TRUE, the login has been successful.
         if($validPassword){
             //Provide the user with a login session.
-            $_SESSION['sessie'] = $user;
+            $_SESSION['sess_Voornaam'] = $user['Voornaam'];
+            $_SESSION['sess_Achternaam'] = $user['Achternaam'];
+            $_SESSION['sess_ID'] = $user['ID'];
 
             //Redirect to our protected page, which we called home.php
             header('Location: dashboard.php');
