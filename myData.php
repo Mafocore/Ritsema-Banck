@@ -6,6 +6,86 @@
     $stmt->execute([$_SESSION['sess_ID']]);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if(isset($_POST['Opslaan']))
+    { 
+    $Voornaam = $_POST['firstname'];
+    $Achternaam = $_POST['lastname'];
+    $Geslacht = $_POST['sex'];
+    $Geboortedatum =$_POST['dateOfBirth'];
+    $Email = $_POST['email'];
+    $Telefoon = $_POST['phone'];
+
+    $voornaamvar = filter_var($Voornaam, FILTER_SANITIZE_SPECIAL_CHARS);
+    $achternaamvar = filter_var($Achternaam, FILTER_SANITIZE_SPECIAL_CHARS);
+    $geslachtvar = filter_var($Geslacht, FILTER_SANITIZE_SPECIAL_CHARS);
+    $geboortevar = filter_var($Geboortedatum, FILTER_SANITIZE_SPECIAL_CHARS);
+    $emailvar = filter_var($Email, FILTER_SANITIZE_EMAIL);
+    $telefoonvar = filter_var($Telefoon, FILTER_SANITIZE_SPECIAL_CHARS);    #anders doen
+
+    if(empty($voornaamvar)){
+        $message="Voornaam is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: myData.php");
+        exit();
+    }
+
+    if(empty($achternaamvar)){
+        $message="Achternaam is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: myData.php");
+        exit();
+    }
+
+    if(empty($geslachtvar)){
+        $message="Geslacht is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: myData.php");
+        exit();
+    }
+
+    if(empty($geboortevar)){
+        $message="Geboortedatum is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: myData.php");
+        exit();
+    }
+
+    if(empty($emailvar)){
+        $message="Email is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: myData.php");
+        exit();
+    }
+
+    if (filter_var($emailvar, FILTER_VALIDATE_EMAIL) === false) {
+        $message="$emailvar Is geen geldige Email";
+        $_SESSION["error"] = $message;
+        header("location: myData.php");
+        exit();
+    }
+    if(empty($telefoonvar)){
+        $message="Mobiel is niet ingevuld";
+        $_SESSION["error"] = $message;
+        header("location: myData.php");
+        exit();
+    }
+
+    if(!preg_match("/^[0-9]{10}+$/", $telefoonvar)) {
+        $message="Ongeldig mobiele nummer";
+        $_SESSION["error"] = $message;
+        header("location: myData.php");
+        exit();
+    }
+
+
+    $sql = "UPDATE user SET Voornaam=?, Achternaam=?, Geslacht=?, Geboortedatum=?, Email=?, Mobiel=? WHERE id=?";
+    $stmt= $pdo->prepare($sql);
+    $stmt->execute([$voornaamvar, $achternaamvar, $geslachtvar, $geboortevar, $emailvar, $telefoonvar, $_SESSION['sess_ID']]);
+    $_SESSION['sess_Voornaam']=$voornaamvar;
+    $_SESSION['sess_Achternaam']=$achternaamvar;
+    header("location: myData.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -81,10 +161,9 @@
                                         <hr>
 
                                         <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <a href="dashboard.php" class="btn btn-primary btn-user btn-block">
-                                                    Opslaan
-                                                </a>
+                                            <div class="buttons col-sm-6 mb-3 mb-sm-0">
+                                                <input type="Submit" name="Opslaan" value="Opslaan"
+                                                    class="btn btn-primary btn-user btn-block">
                                             </div>
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <a href="dashboard.php" class="btn btn-secondary btn-user btn-block">
